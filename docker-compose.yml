@@ -1,0 +1,19 @@
+version: '2'
+services:
+
+  web:
+    image: experiencedevops/node-mongo-react:latest
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongodb
+    networks:
+      - all
+  mongodb:
+    image: mongo:3.4
+    command: mongod --smallfiles
+    networks:
+      - all
+
+networks:
+  all:
